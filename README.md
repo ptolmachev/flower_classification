@@ -25,7 +25,7 @@ The actual code is stored in the folder 'src', which includes:
 
 The folder 'aux' contains an auxilliary information about classes.
 - `cat_to_name.json` - contains the mapping of class number to actual name of flower.
-- `cat_to_names.json` - also contains mapping from class to names: 1) actual name of the class and 2) the relevant google request to obtain relevant images.
+- `cat_to_names.json` - also contains mapping from class to names: 1) actual name of the class and 2) the google request to obtain relevant images.
 
 To use the code above download the full directory 'flower_classification'
 
