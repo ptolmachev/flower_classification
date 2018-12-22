@@ -92,7 +92,7 @@ data_transforms= transforms.Compose([transforms.Resize(size = 224),transforms.Ce
 ####  Transfer-learning
 Training your own model from the scratch may not be the wisest option, as there are plenty of networks available, trained on various datasets. Intuitively, the low-level features like edge- and other simple shapes detectors are similar for the different models even if the clasificators were trained for different purposes. 
 
-In fact, in my model I've trained only the last layer of the pretrained classificator and even that gives quite good results!
+In fact, in this project, I've trained only the last layer of the pretrained classificator and even that gives quite good results!
 
 Here is the example how to use the pretrained model, readily available via torchvision and pytorch: 
 
