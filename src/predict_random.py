@@ -50,7 +50,7 @@ def predict(image, model, cat_to_name, topk=5):
 model = load_model("../models/model_95.0.pth")
 model.eval()
 cat_to_name = json.load(open("../aux/cat_to_name.json"))
-path = '../flower_data_augmented/train/{}/'.format(np.random.randint(1,102))
+path = '../flower_data/train/{}/'.format(np.random.randint(1,102))
 rand_img_path = path + str(os.listdir(path)[np.random.randint(len(os.listdir(path)))])
 rand_pil_img = Image.open(rand_img_path)
 image = process_image(rand_pil_img)

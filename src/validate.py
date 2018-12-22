@@ -15,12 +15,10 @@ import os
 def prepare_model():
     # model = models.vgg19_bn(pretrained=True)
     model = models.resnet152(pretrained = True)
-    i = 0
     # model.classifier._modules['6'] = nn.Linear(4096, 102)
     model._modules['fc'] = nn.Linear(2048, 102)
     for param in model.parameters():
         param.requires_grad = False
-        i += 1
     model._modules['fc'].requires_grad = True
 
     # layers = [param for param in model.classifier.parameters()]
@@ -81,7 +79,7 @@ classes = [x[1][0] for x in cat_to_name.items()]
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 model = prepare_model()
-model = load_model("../models/model_93.0.pth")
+model = load_model("../models/model_95.0.pth")
 model = model.to(device)
 criterion = nn.CrossEntropyLoss()
 model.eval()

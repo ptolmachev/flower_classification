@@ -32,49 +32,72 @@ def validation(model, validloader, criterion):
     return test_loss, accuracy
 
 def train(n_epochs, data_dir, batch_size, num_workers, data_transforms):
-
     train_dir = data_dir + '/train'
     valid_dir = data_dir + '/valid'
-
-    if not os.path.exists('models'):
-        os.makedirs('models')
-
+    
+    # defining the datasets for training and validation with the specified set of transformations
     image_datasets_train = datasets.ImageFolder(root=train_dir, transform=data_transforms)
     image_datasets_valid = datasets.ImageFolder(root=valid_dir, transform=data_transforms)
-
+    
+    #defining the generator objects to get the batches of standardized images from
     trainloader = torch.utils.data.DataLoader(image_datasets_train, batch_size=batch_size,shuffle=True,
         num_workers=num_workers)
     validloader = torch.utils.data.DataLoader(image_datasets_valid, batch_size=batch_size,num_workers=num_workers)
-
+    
+    # get the device to train your model at (pgu or cpu)
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    
+    # building your neural network
     model = prepare_model()
+    # send the network to specified device (gpu if it's available)
     model = model.to(device)
+    
+    # defining the cost function
     criterion = nn.CrossEntropyLoss()
-    # resnet162
+    
+    # spesifying the optimization method
     optimizer = optim.Adam(model._modules['fc'].parameters(), lr=0.001)
-    # vgg19_bn
-    # optimizer = optim.Adam(list(model.classifier._modules['6'].parameters()) + list(model.classifier._modules['5'].parameters()), lr=0.001)
-
+    
+    #set your model into training regime
     model.train()
-    best_accuracy = 0.0
+    
+    # training loop
     for epoch in range(n_epochs):
         # monitor training loss
         train_loss = 0.0
         for data, target in trainloader:
+            # get batch of images
             data = data.to(device)
+            
+            # get the correct labels for the images
             target = target.to(device)
+            
+            # clean the buffer from previous gradients
             optimizer.zero_grad()
+            
+            # get the predicted lables
             output = model(data)
+            
+            #compute the objective function
             loss = criterion(output, target)
+            
+            # compute the gradients with respect to the network weights
             loss.backward()
+            
+            # make an update of weights
             optimizer.step()
+            
             train_loss += loss.item()*data.size(0)
         train_loss = train_loss/len(trainloader.dataset)
-        print('Epoch: {} \tTraining Loss: {:.6f}'.format(epoch+1,train_loss))
+        print('Epoch: {} \t Training Loss: {:.6f}'.format(epoch+1,train_loss))
+        
+        #set your model in evaluation regime (disables dropout, the gradients are not computed)
         model.eval()
         test_loss, accuracy = validation(model, validloader, criterion)
         model.train()
         print('Test Loss: {:.6f} \t Accuracy: {}'.format(test_loss, accuracy))
+
+        # save your model if it's better then the one before!
         if accuracy > best_accuracy:
             best_accuracy = accuracy
             print('Saving the model')
@@ -84,7 +107,7 @@ def train(n_epochs, data_dir, batch_size, num_workers, data_transforms):
 
 
 n_epochs = 10
-data_dir = "../flower_data_augmented"
+data_dir = "../flower_data"
 batch_size = 100
 num_workers = 8
 
