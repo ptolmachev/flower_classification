@@ -191,7 +191,7 @@ def train(n_epochs, data_dir, batch_size, num_workers, data_transforms):
 ```
 
 #### Results and ideas for improvement
-The resulting model were trained for 1.5 hour on the dataset and achieved 95% accuracy on the validation dataset: it is pretty accurate, but of course one can always do better!
+The resulting model were trained for 1.5 hour on the dataset and achieved **95% accuracy** on the validation dataset: it is pretty accurate, but, surely, one can always do better!
 
 - To improve the accuracy, one can apply the gradient update not only to the last fully-connected layer of the network but to the several layers preceding the final output.
 
