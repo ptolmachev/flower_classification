@@ -1,11 +1,12 @@
 # flower_classification
 
 ### Introduction
-This project was aimed to build a flower classificator based on convolutional neural network trained over 102 classes of different flowers. 
 
 <p align="center">
 <img src="https://github.com/ptolmachev/flower_classification/blob/master/img/Flowers.png"/>
 </p>
+
+This project was aimed to build a flower classificator on a convolutional neural network trained over 102 classes of flowers. 
 
 The original dataset of flower images can be downloaded here: 
 
