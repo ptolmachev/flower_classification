@@ -38,9 +38,9 @@ Also download the weight of a trained model if you want to use the network to pr
 The model is now ready to use!
 
 ### How to use floydhub 
-To speed up the training of the CNN, I've used the clod GPU available on the [floydhub](https://www.floydhub.com/)
+To speed up the training of the CNN, I've used the cloud GPU available on the [floydhub](https://www.floydhub.com/)
 
-The service is very straigtforward to use: there is always a good documentation and hints, so you will not get lost! 
+The service is very straigtforward to use: there is always a good documentation and plenty of hints, so you will not get lost! 
 
 At first you need to create your project. To run your job, install the floydhub client on you machine, upload the dataset on their website and run the following command in your terminal:
 
