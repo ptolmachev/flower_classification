@@ -6,7 +6,10 @@ This project is aimed to build a flower classificator utilising convolutional ne
 <p align="center">
 <img src="https://github.com/ptolmachev/flower_classification/blob/master/img/Flowers.png"/>
 </p>
-The original dataset can be downloaded here: [Flower dataset](https://www.floydhub.com/ptolmachev/datasets/flower_data)
+The original dataset can be downloaded here: 
+
+[Flower dataset](https://www.floydhub.com/ptolmachev/datasets/flower_data)
+
 The dataset was kindly provided within [Udacity](https://www.udacity.com/) Pytorch Scholarship Challenge.
 
 ### Requirements
