@@ -125,7 +125,8 @@ def train(n_epochs, data_dir, batch_size, num_workers, data_transforms):
     #defining the generator objects to get the batches of standardized images from
     trainloader = torch.utils.data.DataLoader(image_datasets_train, batch_size=batch_size,shuffle=True,
         num_workers=num_workers)
-    validloader = torch.utils.data.DataLoader(image_datasets_valid, batch_size=batch_size,num_workers=num_workers)
+    validloader = torch.utils.data.DataLoader(image_datasets_valid, batch_size=batch_size,
+        num_workers=num_workers)
     
     # get the device to train your model at (pgu or cpu)
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -192,8 +193,8 @@ def train(n_epochs, data_dir, batch_size, num_workers, data_transforms):
 #### Results and ideas for improvement
 The resulting model were trained for 1.5 hour on the dataset and achieved 95% accuracy on the validation dataset: it is pretty accurate, but of course one can always do better!
 
--To improve the accuracy, one can apply the gradient update not only to the last fully-connected layer of the network but to the several layers preceding the final output.
+- To improve the accuracy, one can apply the gradient update not only to the last fully-connected layer of the network but to the several layers preceding the final output.
 
--If you got plenty of time and free GPU you may design your own network and train it from scratch for ~30-50 epochs to get the network specifically tailored for your need.
+- If you got plenty of time and free GPU you may design your own network and train it from scratch for ~30-50 epochs to get the network specifically tailored for your need.
 
--Getting more clean data will also result in better performance!
+- Getting more clean data will also result in better performance!
