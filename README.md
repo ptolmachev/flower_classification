@@ -28,9 +28,11 @@ The folder 'aux' contains an auxilliary information about classes.
 - `cat_to_names.json` - also contains mapping from class to names: 1) actual name of the class and 2) the relevant google request to obtain relevant images.
 
 To use the code above download the full directory 'flower_classification'
+
 Download the dataset ([Flower dataset](https://www.floydhub.com/ptolmachev/datasets/flower_data)) to the folder named 'flower_data' located in the 'flower_classification'.
+
 Also download the weight of a trained model if you want to use the network to predict the class of the presented image:
-[model weights (Resnet162)] (https://www.floydhub.com/ptolmachev/projects/flower_classification/24/files/models/model_95.0.pth) and place it into the 'models' directory alongside with 'src', 'aux' and 'flower_data'
+[model weights (Resnet162)](https://www.floydhub.com/ptolmachev/projects/flower_classification/24/files/models/model_95.0.pth) and place it into the 'models' directory alongside with 'src', 'aux' and 'flower_data' folders.
 
 ### How to use floydhub 
 
