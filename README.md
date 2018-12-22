@@ -11,6 +11,7 @@ This project was aimed to build a flower classificator on a convolutional neural
 The original dataset of flower images can be downloaded here: 
 
 [Flower dataset](https://www.floydhub.com/ptolmachev/datasets/flower_data)
+
 The dataset was kindly provided within [Udacity](https://www.udacity.com/) Pytorch Scholarship Challenge.
 
 In this project I've used **pytorch** python package and GPUs to speed up the training. I've also used a pretrained network Resnet152 with the last fully connected layer repurposed for the new task. 
