@@ -9,10 +9,7 @@ This project is aimed to build a flower classificator utilising convolutional ne
 The original dataset can be downloaded below:
 
 [Flower dataset](https://www.floydhub.com/ptolmachev/datasets/flower_data)
-
-which was kindly provided within 
-
-[Udacity](https://www.udacity.com/) Pytorch Scholarship Challenge.
+which was kindly provided within [Udacity](https://www.udacity.com/) Pytorch Scholarship Challenge.
 
 ### Requirements
 In this project I've used pytorch python package and GPUs to speed up training. 
