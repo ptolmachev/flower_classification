@@ -176,11 +176,20 @@ def train(n_epochs, data_dir, batch_size, num_workers, data_transforms):
             train_loss += loss.item()*data.size(0)
         train_loss = train_loss/len(trainloader.dataset)
         print('Epoch: {} \t Training Loss: {:.6f}'.format(epoch+1,train_loss))
+        
+        #set your model in evaluation regime (disables dropout, the gradients are not computed)
         model.eval()
         test_loss, accuracy = validation(model, validloader, criterion)
         model.train()
         print('Test Loss: {:.6f} \t Accuracy: {}'.format(test_loss, accuracy))
-        ...
+        
+        # save your model if it's better then the one before!
+        if accuracy > best_accuracy:
+            best_accuracy = accuracy
+            print('Saving the model')
+            file_save_to = "models/model_" + str(100*np.round(best_accuracy,2)) + ".pth"
+            save_model(model.cpu(), file_save_to)
+            model = model.to(device)
 ```
 
 #### Results and ideas for improvement
