@@ -54,8 +54,7 @@ where 'username' is your login name, and 'i' is the folder where the dataset is 
 
 #### Augmenting dataset
 To augment the dataset I've downloaded the relevant images from google using 'google_images_download' API.
-```
-python
+```python
 from google_images_download import google_images_download as gid   #importing the library
 ...
 response = gid.googleimagesdownload()   #class instantiation
@@ -78,8 +77,7 @@ Make sure to pick off the outliers from the images (like broken files or just im
 
 #### Standardization of images
 To make the images have the same size and pixel variation one may use transfors module from pytorch:
-```
-python
+```python
 mean = [0.485, 0.456, 0.406]
 std = [0.229, 0.224, 0.225]
 
@@ -96,8 +94,7 @@ In fact, in my model I've trained only the last layer of the pretrained classifi
 
 Here is the example how to use the pretrained model, readily available via torchvision and pytorch: 
 
-```
-python
+```python
 
 import torch
 from torch import nn as nn
@@ -113,7 +110,7 @@ def prepare_model():
 ```
 
 
-####Training the model
+#### Training the model
 The fucntion which dioes the training is presented below:
 
 ```python
